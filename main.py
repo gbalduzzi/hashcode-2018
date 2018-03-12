@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
 from timeit import default_timer as timer
 
 filenames = ["A", "B", "C", "D", "E"]
-#filenames = ["B"]
 curr_points = [10, 175452, 15805661, 11681464, 21401945]
 
+timeStart = timer()
 for file in filenames:
     print("--- START FILE {} ---".format(file))
 
@@ -46,7 +45,7 @@ for file in filenames:
                 # parameters
                 a, b = [0, 1]
                 if file == 'B': a = 33
-                if file == 'D': a = 0.12
+                if file == 'D': a = 0.25
                 if file == 'E': b = 100
                 
                 # Select the ride i can start first
@@ -91,3 +90,5 @@ for file in filenames:
                 f.write("{} ".format(r))
             f.write("\n")
     print("--- END file {} --\n".format(file))
+
+print("ENDED ALL FILES in {}".format(timer()-timeStart))
